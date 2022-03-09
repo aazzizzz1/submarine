@@ -1,4 +1,4 @@
-# praktikum3
+# submarine
 
 A new Flutter project.
 
