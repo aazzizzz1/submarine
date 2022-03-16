@@ -1,7 +1,75 @@
 import 'package:flutter/material.dart';
+import 'package:wonderfulbanyuwangi/model/tourism_place.dart';
+
+class MainScreen extends StatelessWidget {
+    const MainScreen({Key? key}) : super(key: key);
+
+    @override
+    Widget build(BuildContext context) {
+      return Scaffold(
+        appBar: AppBar(
+          title: const Text(
+              'Welcome to Banyuwangi with service of Aziz',
+              textAlign: TextAlign.center,
+          ),
+        ),
+        body: ListView.builder(
+            itemBuilder: (context, index) {
+              final TourismPlace place = tourismPlaceList[index];
+              return InkWell(
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return DetailScreen(place: place);
+                  }));
+                },
+                child: listItem(place),
+              );
+        },
+        itemCount: tourismPlaceList.length,
+        ),
+      );
+    }
+
+    Widget listItem(TourismPlace place){
+      return Card(
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Expanded(
+              flex: 1,
+              child: Image.asset(place.imageAsset),
+            ),
+            Expanded(
+            flex: 2,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  Text(
+                    place.name,
+                    style: const TextStyle(fontSize: 16.0),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Text(place.location)
+                ],
+              ),
+            ),
+            ),
+          ],
+        ),
+      );
+    }
+}
+
 
 class DetailScreen extends StatelessWidget {
-  const DetailScreen({Key? key}) : super(key: key);
+  const DetailScreen({Key? key, required this.place}) : super(key: key);
+
+  final TourismPlace place;
 
   @override
   Widget build(BuildContext context) {
@@ -11,14 +79,15 @@ class DetailScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              Image.asset("assets/images/monkasel_6.jpg", height: 400, width: 660,),
+              Image.asset(place.imageAsset),
               Container(
                 margin: const EdgeInsets.only(top: 16.0),
-                child: const Text(
-                  "Surabaya Submarine Monument",
+                child: Text(
+                  place.name,
                   textAlign: TextAlign.center,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 30.0,
+                    fontWeight: FontWeight.bold,
                     fontFamily: 'Lobster',
                   ),
                 ),
@@ -29,21 +98,21 @@ class DetailScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
                     Column(
-                      children: const <Widget>[
-                        Icon(Icons.calendar_today),
-                        Text('Monday - Friday'),
+                      children: <Widget>[
+                        const Icon(Icons.calendar_today),
+                        Text(place.day),
                       ],
                     ),
                     Column(
-                      children: const <Widget>[
-                        Icon(Icons.schedule),
-                        Text('08.00 - 15.00'),
+                      children: <Widget>[
+                        const Icon(Icons.schedule),
+                        Text(place.time),
                       ],
                     ),
                     Column(
-                      children: const <Widget>[
-                        Icon(Icons.attach_money_rounded),
-                        Text('IDR 20.000,-'),
+                      children: <Widget>[
+                        const Icon(Icons.attach_money_rounded),
+                        Text(place.price),
                       ],
                     ),
                   ],
@@ -51,22 +120,10 @@ class DetailScreen extends StatelessWidget {
               ), // New Container
               Container(
                 padding: const EdgeInsets.all(16.0),
-                child: const Text(
-                  'Surabaya Submarine Monument or as known as '
-                      'Monumen Kapal Selam (Monkasel) is the largest submarine '
-                      'monument in Asia, which was built in riverside of Kalimas,'
-                      'Surabaya.This monument was built by idea of Navy Veterans. '
-                      'KRI Pasopati 410, is one of SS Whiskey Class SS,  '
-                      'made in Vladi Wostok Russian in 1952.This submarines was '
-                      'participated in Navy since 29th of January, 1962, '
-                      'and the main job were to destroy anti-shipping from enemies '
-                      'supervision and raids silently. '
-                      'Surabaya Submarine Monument has supporting facilities such as'
-                      'video rama, live music, swimming pool for kids and water tourism '
-                      'in Kalimas River, a souvenir stand and parking space. '
-                      'In the complex of the museum also stand a spacious stage for special occassions..',
+                child: Text(
+                  place.description,
                   textAlign: TextAlign.center,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 17.0,
                     fontFamily: 'Oxygen',
                   ),
@@ -81,35 +138,28 @@ class DetailScreen extends StatelessWidget {
                       padding: const EdgeInsets.all(4.0),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(15),
-                        child: Image.asset('assets/images/submarine8.jpg'),
+                        child: Image.asset(place.image1),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(4.0),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(15),
-                        child: Image.asset('assets/images/submarine2.jpg'),
+                        child: Image.asset(place.image2),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(4.0),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(15),
-                        child: Image.asset('assets/images/submarine1.jpg'),
+                        child: Image.asset(place.image3),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(4.0),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(15),
-                        child: Image.network('https://media-cdn.tripadvisor.com/media/photo-m/1280/16/a9/33/43/liburan-di-farmhouse.jpg'),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(15),
-                        child: Image.asset('assets/images/submarine5.jpg'),
+                        child: Image.asset(place.image4),
                       ),
                     ),
                   ],

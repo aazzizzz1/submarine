@@ -1,6 +1,6 @@
 # submarine
 
-A new Flutter project.
+Minggu ke 3.
 
 ## Getting Started
 
