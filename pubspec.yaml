@@ -1,5 +1,5 @@
-name: submarine
-description: Minggu ke 3
+name: wonderfulbanyuwangi
+description: Minggu ke 5
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -55,20 +55,41 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/images/monkasel_1.jpeg
-    - assets/images/monkasel_2.jpg
-    - assets/images/monkasel_3.jpg
-    - assets/images/monkasel_4.jpeg
-    - assets/images/monkasel_6.jpg
-    - assets/images/monkasel_7.jpg
-    - assets/images/submarine1.jpg
-    - assets/images/submarine2.jpg
-    - assets/images/submarine3.jpg
-    - assets/images/submarine4.jpg
-    - assets/images/submarine5.jpg
-    - assets/images/submarine6.jpg
-    - assets/images/submarine7.jpg
-    - assets/images/submarine8.jpg
+    - assets/images/ijen.jpg
+    - assets/images/ijen1.jpg
+    - assets/images/ijen2.jpg
+    - assets/images/ijen3.jpg
+    - assets/images/ijen4.jpg
+    - assets/images/djawatan.jpg
+    - assets/images/djawatan1.jpg
+    - assets/images/djawatan2.jpg
+    - assets/images/djawatan3.jpg
+    - assets/images/djawatan4.jpg
+    - assets/images/osing.jpg
+    - assets/images/osing1.jpg
+    - assets/images/osing2.jpg
+    - assets/images/osing3.jpg
+    - assets/images/osing4.jpg
+    - assets/images/wediireng.jpg
+    - assets/images/wediireng1.jpg
+    - assets/images/wediireng2.jpg
+    - assets/images/wediireng3.jpg
+    - assets/images/wediireng4.jpg
+    - assets/images/raung.jpg
+    - assets/images/raung1.jpg
+    - assets/images/raung2.jpg
+    - assets/images/raung3.jpg
+    - assets/images/raung4.jpg
+    - assets/images/bangsring.jpg
+    - assets/images/bangsring1.jpg
+    - assets/images/bangsring2.jpg
+    - assets/images/bangsring3.jpg
+    - assets/images/bangsring4.jpg
+    - assets/images/pulaumerah.jpg
+    - assets/images/pulaumerah1.jpg
+    - assets/images/pulaumerah2.jpg
+    - assets/images/pulaumerah3.jpg
+    - assets/images/pulaumerah4.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
