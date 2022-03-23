@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:wonderfulbanyuwangi/detail_screen.dart';
+import 'package:provider/provider.dart';
+import 'package:wonderfulbanyuwangi/provider/done_tourism_provider.dart';
+import 'main_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,12 +13,13 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return ChangeNotifierProvider(
+      create: (context) => DoneTourismProvider(),
+      child: MaterialApp(
       title: 'Wonderful Banyuwangi',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+      theme: ThemeData(),
+        home: MainScreen(),
       ),
-      home: const MainScreen(),
     );
   }
 }
